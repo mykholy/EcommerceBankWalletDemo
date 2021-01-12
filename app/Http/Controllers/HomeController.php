@@ -96,9 +96,10 @@ class HomeController extends Controller
     {
 
 
-        $bank_wallet = new BankWalletHelper(env('CLIENT_ID'), env('CLIENT_SECRET'),"https://bank.egym.site/");
+        $bank_wallet = new BankWalletHelper(env('CLIENT_ID'), env('CLIENT_SECRET'), "https://bank.egym.site/");
 
-        $res = $bank_wallet->checkout(json_encode($this->cartData()));
+        $res = $bank_wallet->checkout($this->cartData());
+
 
 
         if (!$res['status'])
